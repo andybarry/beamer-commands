@@ -35,8 +35,9 @@
     {\scriptsize #1}
 }
 
-\newcommand{\citeframe}[2][1]
-{\only<#1->{\footnote{\citeauthor{#2}, \citetitle{#2}. \citeyear{#2}.}}}
+\newcommand<>\citeframe[1]{%
+\footnote#2{\citeauthor{#1}, \citetitle{#1}. \citeyear{#1}.}%
+}
 
 \newcommand{\citeframeNoNumber}[2][1]
 {\only<#1->{\let\thefootnote\relax\footnote{\citeauthor{#2}, \citetitle{#2}. \citeyear{#2}.}}}
