@@ -155,7 +155,7 @@
             \centering
             \vbox to 0.95\paperheight {
                 \vfil{
-                    \href{run:#2.avi?autostart&#1}{\includegraphics[width=\paperwidth,height=0.95\paperheight,keepaspectratio]{#2.jpg}}
+                    \href{run:#2.avi?autostart&#1&nobar}{\includegraphics[width=\paperwidth,height=0.95\paperheight,keepaspectratio]{#2.jpg}}
                 }
                 \vfil
             }
@@ -280,6 +280,15 @@
     {
         \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
         \frame[plain]{}
+        \addtocounter{framenumber}{-1}
+    }
+}
+
+\newcommand{\startframe}
+{
+    {
+        \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
+        \frame[plain]{\CopyrightText{.}}
         \addtocounter{framenumber}{-1}
     }
 }
