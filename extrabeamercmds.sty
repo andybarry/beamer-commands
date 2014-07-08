@@ -9,6 +9,12 @@
 
 \newcommand{\putat}[3]{\begin{picture}(0,0)(0,0)\put(#1,#2){#3}\end{picture}}
 
+% overlay aware strikeout
+\renewcommand<>{\sout}[1]{%
+    \alt#2{\beameroriginal{\sout}{#1}}{#1}
+}
+
+
 \newenvironment{changemargin}[2]{%
   \begin{list}{}{%
     \setlength{\topsep}{0pt}%
@@ -297,7 +303,15 @@
 {
     {
         \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-        \frame[plain]{\CopyrightText{.}}
+        \frame[plain]{
+            \begin{textblock*}{\paperwidth}(0\paperwidth,.05\paperheight)%
+                \textcolor{white}{. \hfill .}
+            \end{textblock*}
+        
+            \begin{textblock*}{\paperwidth}(0\paperwidth,.97\paperheight)%
+                \textcolor{white}{. \hfill .}
+            \end{textblock*}
+        }
         \addtocounter{framenumber}{-1}
     }
 }
